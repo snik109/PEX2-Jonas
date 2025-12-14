@@ -1,0 +1,161 @@
+.profilePage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  min-height: calc(100vh - 100px);
+  background: var(--bg);
+}
+
+.profileCard {
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  background: var(--cards);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: var(--text);
+}
+
+.profileCard h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.profilePictureSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.profilePicturePreview {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+}
+
+.profilePictureInput {
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.uploadHint {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.profileSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profileSection h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.profileDisplay {
+  margin: 8px 0;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--cards-alt);
+  color: var(--text);
+  font-size: 14px;
+  word-break: break-word;
+}
+
+.profileSection select,
+.profileSection input {
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.profileSection select:focus,
+.profileSection input:focus {
+  outline: none;
+  border-color: var(--status-open);
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.checkboxLabel input {
+  cursor: pointer;
+  width: auto;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.saveBtn {
+  padding: 12px 20px;
+  background: var(--status-open);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.saveBtn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.saveBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.logoutBtn {
+  padding: 12px 20px;
+  background: var(--priority-high);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.logoutBtn:hover {
+  filter: brightness(0.85);
+}
+
+.error {
+  color: var(--priority-high);
+  padding: 10px;
+  background: rgba(214, 69, 69, 0.08);
+  border-radius: 4px;
+  font-size: 14px;
+}

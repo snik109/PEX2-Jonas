@@ -1,0 +1,275 @@
+.adminPage {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 20px;
+  min-height: calc(100vh - 100px);
+  background: var(--bg);
+}
+
+.adminContainer {
+  width: 100%;
+  max-width: 1000px;
+  padding: 30px;
+  background: var(--cards);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+}
+
+.adminContainer h2 {
+  margin: 0 0 20px 0;
+  font-size: 28px;
+}
+
+.adminHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.adminHeader h2 {
+  margin: 0;
+}
+
+.addBtn {
+  padding: 10px 20px;
+  background: var(--status-open);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.addBtn:hover {
+  opacity: 0.9;
+}
+
+.error {
+  color: var(--priority-high);
+  padding: 10px;
+  background: rgba(214, 69, 69, 0.08);
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.accountsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.accountCard {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 20px;
+  background: transparent;
+  transition: all 0.2s;
+}
+
+.accountCard:hover {
+  border-color: var(--status-open);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.accountProfilePicture {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 2px solid var(--border);
+}
+
+.accountInfo {
+  margin-bottom: 15px;
+}
+
+.accountInfo p {
+  margin: 8px 0;
+  font-size: 14px;
+  word-break: break-word;
+}
+
+.accountInfo strong {
+  color: var(--text-secondary);
+}
+
+.editForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profilePictureEditSection {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.profilePicturePreview {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+}
+
+.editForm input,
+.editForm label {
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.editForm input:focus {
+  outline: none;
+  border-color: var(--status-open);
+}
+
+.editForm label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.editForm label input {
+  padding: 0;
+  width: auto;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.editBtn,
+.deleteBtn,
+.saveBtn,
+.cancelBtn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.editBtn {
+  background: var(--status-open);
+  color: white;
+}
+
+.editBtn:hover {
+  opacity: 0.9;
+}
+
+.deleteBtn {
+  background: var(--priority-high);
+  color: white;
+}
+
+.deleteBtn:hover {
+  filter: brightness(0.85);
+}
+
+.saveBtn {
+  background: var(--status-open);
+  color: white;
+}
+
+.saveBtn:hover {
+  opacity: 0.9;
+}
+
+.cancelBtn {
+  background: var(--status-inprogress);
+  color: white;
+}
+
+.cancelBtn:hover {
+  opacity: 0.9;
+}
+
+.adminModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.adminModalContent {
+  background: var(--cards);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 30px;
+  max-width: 400px;
+  width: 90%;
+  color: var(--text);
+}
+
+.adminModalContent h3 {
+  margin: 0 0 20px 0;
+  font-size: 20px;
+}
+
+.adminModalContent form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.adminModalContent input {
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.adminModalContent input:focus {
+  outline: none;
+  border-color: var(--status-open);
+}
+
+.adminModalContent .checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.adminModalContent .checkboxLabel input {
+  width: auto;
+  padding: 0;
+}
+
+.modalButtons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.modalButtons button {
+  flex: 1;
+}

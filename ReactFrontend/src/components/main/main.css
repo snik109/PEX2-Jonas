@@ -1,0 +1,175 @@
+.mainContent {
+        display: flex;
+        flex-direction: row;
+        height: calc(100vh - 60px);
+        width: 100%;
+        background: var(--bg);
+}
+
+.mainInner {
+    flex: 1;
+    padding: 24px 28px;
+    overflow-y: auto;
+    order: 2;
+}
+
+.fixColor {
+    color: var(--text) !important;
+}
+
+.topTickets {
+    max-width: 900px;
+}
+
+.topTicketCard {
+    background: var(--cards);
+    border: 1px solid var(--border);
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.topTicketHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.ticketDescription {
+    color: var(--text-secondary);
+    margin: 8px 0;
+}
+
+.ticketMeta {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.ticketModalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.ticketModalContent {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ticketModalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    gap: 12px;
+}
+
+.ticketModalHeader h2 {
+    color: var(--text);
+    margin: 0;
+    flex: 1;
+}
+
+.closeBtn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.closeBtn:hover {
+    color: var(--text);
+}
+
+.ticketModalBody {
+    padding: 20px;
+}
+
+.ticketModalSection {
+    margin-bottom: 16px;
+}
+
+.ticketModalSection label {
+    display: block;
+    color: var(--text);
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.ticketModalSection p {
+    color: var(--text);
+    margin: 0;
+}
+
+.statusSelect,
+.prioritySelect {
+    padding: 6px 8px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--cards);
+    color: var(--text);
+    font-family: inherit;
+}
+
+.tagsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tagBadge {
+    background: var(--accent);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.commentsList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.comment {
+    background: var(--cards);
+    padding: 10px;
+    border-radius: 4px;
+    border-left: 3px solid var(--accent);
+}
+
+.comment strong {
+    color: var(--text);
+}
+
+.comment p {
+    color: var(--text-secondary);
+    margin: 4px 0;
+}
+
+.comment small {
+    color: var(--text-secondary);
+    font-size: 11px;
+}

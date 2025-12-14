@@ -1,0 +1,118 @@
+/* Color State - Light Mode (Default) */
+:root {
+  --button-normal: #22A652;
+  --button-normal-hover: #1C8A45;
+
+  --bg: #F4F5F5;
+  --cards: #FFFFFF;
+  --cards-alt: #F0F2F0;
+  --border: #D8DCD8;
+
+  --text: #1A1A1A;
+  --text-secondary: #5A625A;
+
+  --priority-high: #D64545;
+  --priority-medium: #E78A1F;
+  --priority-low: #C0C834;
+
+  --status-open: #AC4800;
+  --status-inprogress: #0053AC;
+  --status-resolved: #087B32;
+}
+
+/* Dark Mode - Explicit Data Attribute */
+[data-theme="dark"] {
+  --button-normal: #2ECC71;
+  --button-normal-hover: #27AE60;
+
+  --bg: #141716;
+  --cards: #1E2221;
+  --cards-alt: #2A2F2D;
+  --border: #3A423F;
+
+  --text: #F3F7F3;
+  --text-secondary: #A7B3A7;
+
+  --priority-high: #FF6B6B;
+  --priority-medium: #FFa94D;
+  --priority-low: #D7E95C;
+
+  --status-open: #E0A800;
+  --status-inprogress: #007BFF;
+  --status-resolved: #22A652;
+}
+
+/* Light Mode - Explicit Data Attribute */
+[data-theme="light"] {
+  --button-normal: #22A652;
+  --button-normal-hover: #1C8A45;
+
+  --bg: #F4F5F5;
+  --cards: #FFFFFF;
+  --cards-alt: #F0F2F0;
+  --border: #D8DCD8;
+
+  --text: #1A1A1A;
+  --text-secondary: #5A625A;
+
+  --priority-high: #D64545;
+  --priority-medium: #E78A1F;
+  --priority-low: #C0C834;
+
+  --status-open: #AC4800;
+  --status-inprogress: #0053AC;
+  --status-resolved: #087B32;
+}
+
+/* Auto Mode - Use System Preference */
+@media (prefers-color-scheme: dark) {
+  [data-theme="auto"] {
+    --button-normal: #2ECC71;
+    --button-normal-hover: #27AE60;
+
+    --bg: #141716;
+    --cards: #1E2221;
+    --cards-alt: #2A2F2D;
+    --border: #3A423F;
+
+    --text: #F3F7F3;
+    --text-secondary: #A7B3A7;
+
+    --priority-high: #FF6B6B;
+    --priority-medium: #FFa94D;
+    --priority-low: #D7E95C;
+
+    --status-open: #E0A800;
+    --status-inprogress: #007BFF;
+    --status-resolved: #22A652;
+  }
+}
+
+/* Fix dropdown/select styling */
+select,
+select option {
+  background: var(--cards);
+  color: var(--text);
+}
+
+select:hover,
+select:focus {
+  background: var(--cards);
+  color: var(--text);
+  border-color: var(--status-open);
+}
+
+select option:hover {
+  background: var(--status-open);
+  color: white;
+}
+
+select option:checked {
+  background: var(--status-open);
+  color: white;
+}
+
+select option:checked:hover {
+  background: var(--status-open);
+  color: white;
+}

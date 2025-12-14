@@ -1,0 +1,27 @@
+{
+  "name": "restapi-jonas",
+  "version": "1.0.0",
+  "description": "RestAPI for filmer",
+  "homepage": "https://github.com/snik109/RestAPI-Jonas#readme",
+  "bugs": {
+    "url": "https://github.com/snik109/RestAPI-Jonas/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snik109/RestAPI-Jonas.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3"
+  }
+}

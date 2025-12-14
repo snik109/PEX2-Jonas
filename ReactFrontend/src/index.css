@@ -1,0 +1,57 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Global select styling for light and dark mode */
+select {
+  background-color: var(--cards);
+  color: var(--text);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  padding: 10px;
+}
+
+select:hover,
+select:focus {
+  background-color: var(--cards);
+  color: var(--text);
+  border-color: var(--status-open);
+  outline: none;
+}
+
+select option {
+  background-color: var(--cards);
+  color: var(--text);
+  padding: 10px;
+}
+
+/* Force dropdown menu colors */
+select option:hover {
+  background: var(--status-open) !important;
+  color: white !important;
+}
+
+select option:focus {
+  background: var(--status-open) !important;
+  color: white !important;
+}
+
+select option:checked {
+  background: linear-gradient(var(--status-open), var(--status-open)) !important;
+  background-color: var(--status-open) !important;
+  color: white !important;
+}
+
+select option:checked:hover {
+  background: linear-gradient(var(--status-open), var(--status-open)) !important;
+  background-color: var(--status-open) !important;
+  color: white !important;
+}
