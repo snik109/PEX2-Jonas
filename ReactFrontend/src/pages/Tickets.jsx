@@ -231,6 +231,26 @@ export default function Tickets() {
         }
     }
 
+    async function deleteTicket(id) {
+        try {
+            if (!window.confirm('Er du sikker på at du vil slette denne saken? Denne handlingen kan ikke angres.')) {
+                return
+            }
+            const res = await fetchWithAuth(`/api/v1.0.0/tickets/${id}`, {
+                method: 'DELETE'
+            })
+            const data = await res.json()
+            if (!res.ok) {
+                setError(data.message || 'Failed to delete ticket')
+                return
+            }
+            setTickets(tickets.filter(t => t.id !== id))
+            setSelectedTicket(null)
+        } catch (err) {
+            setError('Network error deleting ticket')
+        }
+    }
+
     const displayedTickets = view === 'mine' && userProfile
         ? tickets.filter(t => t.owner === userProfile.username)
         : tickets
@@ -645,6 +665,9 @@ export default function Tickets() {
                                             }}
                                         >
                                             Avbryt
+                                        </button>
+                                        <button className="deleteBtn" onClick={() => deleteTicket(selectedTicket.id)}>
+                                            Slett Sak
                                         </button>
                                     </>
                                 )}

@@ -1,13 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { 
-    getTickets, 
-    getTicket, 
-    createNewTicket, 
-    updateExistingTicket, 
-    deleteExistingTicket,
-    addNewComment
-} = require('../controllers/ticketController');
+const { getTickets, getTicket, createNewTicket, updateExistingTicket, deleteExistingTicket,addNewComment } = require('../controllers/ticketController');
 
 const { auth } = require('../authorization/auth');
 

@@ -3,7 +3,7 @@ const path = require('path');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
-import { logError, logValidationError, logBadRequest, logGeneralError, logSuccess } from "../logging/errorAndRequestLogging";
+const { logError, logValidationError, logBadRequest, logGeneralError, logSuccess } = require("../logging/errorAndRequestLogging");
 
 const envPath = path.resolve(__dirname, '../../../.env'); // adjust path if needed
 

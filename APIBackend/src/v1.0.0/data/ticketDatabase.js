@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ticketsFilePath = path.join(__dirname, 'databaseStorage.json');
+console.log(ticketsFilePath);
 
 function readTickets() {
     try {
@@ -20,6 +21,7 @@ function writeTickets(tickets) {
         const parsed = JSON.parse(data);
         parsed.tickets = tickets;
         fs.writeFileSync(ticketsFilePath, JSON.stringify(parsed, null, 2));
+        console.log(ticketsFilePath);
     } catch (err) {
         console.error('Error writing tickets:', err);
     }
