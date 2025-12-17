@@ -24,6 +24,7 @@ export default function Tickets() {
         priority: 'low',
         tags: []
     })
+    const [searchQuery, setSearchQuery] = useState('')
     const [availableTags, setAvailableTags] = useState(() => {
         try {
             return JSON.parse(localStorage.getItem('availableTags') || '[]')
@@ -270,6 +271,17 @@ export default function Tickets() {
         filteredTickets = filteredTickets.filter(t => (t.tags || []).includes(tagFilter))
     }
 
+    window.addEventListener("ticketSearch", (e) => {
+        setSearchQuery(e.detail);
+    });
+
+    const searchLower = searchQuery.toLowerCase().trim();
+    if (searchLower) {
+        filteredTickets = filteredTickets.filter(t =>
+            t.ticketName.toLowerCase().includes(searchLower)
+        );
+    }
+
     if (loading) return <div className="ticketsPage"><p>Laster saker...</p></div>
 
     return (
@@ -374,6 +386,7 @@ export default function Tickets() {
                     selectedTag={tagFilter}
                     onClearTag={() => setTagFilter(null)}
                     stats={stats}
+                    searchBar={true}
                 />
 
                 {showCreateModal && (

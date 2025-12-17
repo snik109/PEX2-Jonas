@@ -7,6 +7,7 @@ export default function Aside({
   selectedTag = null,
   onClearTag = () => {},
   showTags = true,
+  searchBar = true,
 }) {
   return (
     <aside className="sideMenu">
@@ -55,6 +56,19 @@ export default function Aside({
               ))}
             </div>
           </div>
+        </div>
+      )}
+      {searchBar && (
+        <div className="menuItem searchSection">
+          <h4>Søk Etter Sak</h4>
+          <input
+            type="text"
+            placeholder="Søk etter Sak"
+            onChange={(e) => {
+              const searchEvent = new CustomEvent('ticketSearch', { detail: e.target.value });
+              window.dispatchEvent(searchEvent);
+            }}
+          />
         </div>
       )}
     </aside>

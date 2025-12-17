@@ -3,6 +3,16 @@ const path = require("path");
 
 const DB_PATH = path.join(__dirname, "accounts.json");
 
+async function createDatabase() {
+    try {
+        await fs.access(DB_PATH);
+    } catch (err) {
+        // File does not exist, create it
+        await fs.writeFile(DB_PATH, JSON.stringify([], null, 2));
+    }
+}
+
+
 const allowedFields = ['username', 'password', 'email', 'fullName', 'profilePicture', 'theme', 'notifications', 'isAdmin'];
 
 // Validate ticket object - returns {valid: boolean, error: string|null}
@@ -117,5 +127,6 @@ module.exports = {
     createAccount,
     validateObject,
     deleteAccountByUsername,
-    updateAccount
+    updateAccount,
+    createDatabase
 };

@@ -9,7 +9,6 @@ const checkLogIn = async (req, res) => {
         const user = await getAccountByUsername(username);
         if (!user) return res.status(401).json({ message: 'Authentication failed' });
         const token = signToken({ id: user.id, username: user.username });
-        if (user.passwordHash === undefined) return res.status(200).json({ message: 'Authentication successful due to no password assuming temporary account', token });
         const passwordMatch = await bcrypt.compare(password, user.passwordHash);
         if (!passwordMatch) return res.status(401).json({ message: 'Authentication failed' });
 
@@ -59,7 +58,6 @@ const register = async (req, res) => {
         }
     });
 };
-
 
 const deleteLogins = async (req, res) => {
     const { usernames } = req.body;
@@ -199,6 +197,25 @@ const changePassword = async (req, res) => {
         return res.status(500).json({ message: 'Internal server error' });
     }
 };
+
+const allAccounts = require('../data/accountDatabase').getAllAccounts;
+if (allAccounts.length === 0) {
+    // Create a default admin account if none exist
+    (async () => {
+        const defaultAdminPasswordHash = await bcrypt.hash('admin123', 14);
+        await createAccount({
+            username: 'admin',
+            passwordHash: defaultAdminPasswordHash,
+            email: '<EMAIL>',
+            fullName: 'Admin User',
+            profilePicture: null,
+            theme: 'dark',
+            notifications: true,
+            isAdmin: true
+        });
+    })();
+    console.log('Default admin account created with username "admin" and password "admin123"');
+}
 
 module.exports = {
     checkLogIn,

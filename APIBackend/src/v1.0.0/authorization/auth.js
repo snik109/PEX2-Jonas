@@ -1,5 +1,4 @@
 const { verifyToken } = require('../config/jwtConfig');
-const accounts = require('../data/accounts.json');
 
 function auth(req, res, next) {
   const header = req.headers.authorization;
@@ -25,6 +24,7 @@ function auth(req, res, next) {
 
 function authAdmin(req, res, next) {
   const header = req.headers.authorization;
+  const accounts = require('../data/accounts.json');
   if (!header) return res.status(401).json({ message: 'No token provided' });
   const token = header.split(' ')[1]; // Bearer <token>
   try {

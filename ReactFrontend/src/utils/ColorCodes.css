@@ -103,16 +103,16 @@ select:focus {
 }
 
 select option:hover {
-  background: var(--status-open);
+  background: var(--cards);
   color: white;
 }
 
 select option:checked {
-  background: var(--status-open);
+  background: var(--cards);
   color: white;
 }
 
 select option:checked:hover {
-  background: var(--status-open);
+  background: var(--cards);
   color: white;
 }

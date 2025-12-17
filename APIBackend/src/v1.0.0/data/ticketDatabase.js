@@ -4,6 +4,17 @@ const path = require('path');
 const ticketsFilePath = path.join(__dirname, 'databaseStorage.json');
 console.log(ticketsFilePath);
 
+fs.writeFile(
+    ticketsFilePath,
+    JSON.stringify({ tickets: [] }, null, 2),
+    { flag: 'wx' }, // write only if file does NOT exist
+    (err) => {
+        if (err && err.code !== 'EEXIST') {
+            console.error("Error creating tickets file:", err);
+        }
+    }
+);
+
 function readTickets() {
     try {
         const data = fs.readFileSync(ticketsFilePath, 'utf-8');
