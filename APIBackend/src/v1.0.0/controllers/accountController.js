@@ -198,11 +198,13 @@ const changePassword = async (req, res) => {
     }
 };
 
-const allAccounts = require('../data/accountDatabase').getAllAccounts;
-if (allAccounts.length === 0) {
-    // Create a default admin account if none exist
-    (async () => {
+(async () => {
+    const { getAllAccounts } = require('../data/accountDatabase');
+    const allAccounts = await getAllAccounts();
+
+    if (allAccounts.length === 0) {
         const defaultAdminPasswordHash = await bcrypt.hash('admin123', 14);
+
         await createAccount({
             username: 'admin',
             passwordHash: defaultAdminPasswordHash,
@@ -213,9 +215,14 @@ if (allAccounts.length === 0) {
             notifications: true,
             isAdmin: true
         });
-    })();
-    console.log('Default admin account created with username "admin" and password "admin123"');
-}
+
+        console.log(
+            'Default admin account created with username "admin" and password "admin123"'
+        );
+    }
+})();
+
+
 
 module.exports = {
     checkLogIn,
